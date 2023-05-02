@@ -1,0 +1,142 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main(void)
+{
+	uint32_t *regmap = (uint32_t *) 0x70000000;
+
+	// Initialize A and B
+	size_t A;
+	size_t B;
+	A = rand() & 0xff;
+	A = A | ((rand() & 0xff) << 8);
+	A = A | ((rand() & 0xff) << 16);
+	A = A | ((rand() & 0xff) << 24);
+	A = (rand() << 17) + (rand() << 2) + (rand() % 3);
+
+	B = rand() & 0xff;
+	B = B | ((rand() & 0xff) << 8);
+	B = B | ((rand() & 0xff) << 16);
+	B = B | ((rand() & 0xff) << 24);
+	B = (rand() << 17) + (rand() << 2) + (rand() % 3);
+
+	//////////////////////////////////////////////////////////////////////
+	regmap[0] = A;
+	regmap[1] = B;
+	regmap[2] = 0;
+	size_t r  = regmap[0];
+	printf("%2zu AND %2zu = %3zu (%s)\n", A, B, r, (r == (A & B)) ? "PASSED" : "ERR");
+
+	regmap[2] = 1;
+	r  = regmap[0];
+	printf("%2zu OR %2zu = %3zu (%s)\n", A, B, r, (r == (A | B)) ? "PASSED" : "ERR");
+
+	regmap[2] = 2;
+	r  = regmap[0];
+	printf("%2zu XOR %2zu = %3zu (%s)\n", A, B, r, (r == (A ^ B)) ? "PASSED" : "ERR");
+
+	regmap[2] = 3;
+	r  = regmap[0];
+	printf("%2zu NOR %2zu = %3zu (%s)\n", A, B, r, (r == ~(A|B)) ? "PASSED" : "ERR");
+
+
+	//LSL
+	printf("\nLSL\n");
+	A = 0xFEDCBA98;
+	regmap[0] = A;
+	regmap[2] = 12;
+	for (size_t i = 0; i < 32; i++) {
+		regmap[3] = i;
+		size_t r  = regmap[0];
+		if(r == A << i){
+			printf("%2zu logic << %2zu = %3zu (%s)\n", A, i, r, (r == A<<i));
+		}
+		else{
+			printf("/n ERR");
+		}
+	}
+
+	// ASL
+	printf("\nASL\n");
+	regmap[2] = 13;
+	for (size_t i = 0; i <= 31; i++) {
+		regmap[3] = i;
+		size_t r  = regmap[0];
+		if((r == (signed int)A<<i)){
+			printf("%2zd arithmetic << %2zu = %3zd (%s)\n", A, i, r);
+		}
+		else{
+			printf("/nERR");
+		}
+	}
+
+	// LSR
+	printf("\nLSR\n");
+	regmap[2] = 14;
+	for (size_t i = 0; i <= 31; i++) {
+		regmap[3] = i;
+		size_t r  = regmap[0];
+		if((r == A>>i)){
+			printf("%2zu logical >> %2zu = %3zu (%s)\n", A, i, r);
+		}
+		else{
+			printf("\nERR");
+		}
+	}
+
+	// Arithmetic right shift
+	printf("\n\nArithmetic right shift\n");
+	regmap[2] = 15;
+	for (size_t i = 0; i <= 31; i++) {
+		regmap[3] = i;
+		size_t r  = regmap[0];
+		printf("%2zd arithmetic >> %2zu = %3zd (%s)\n", A, i, r, (r == (signed int)A>>i) ? "PASSED" : "ERR");
+	}
+
+	// Testing comparison unit
+	printf("\n\nTesting comparison unit\n");
+
+	// Signed comparison
+	printf("\nSigned comparison\n");
+	regmap[2] = 10;
+	r  = regmap[0];
+	printf("%2zd less than %2zd == %3zu (%s)\n", A, B, r, (r == ((signed int)A < (signed int)B)) ? "PASSED" : "ERR");
+
+	// Signed comparison
+	printf("\nUnsigned comparison\n");
+	regmap[2] = 11;
+	r  = regmap[0];
+	printf("%2zu less than %2zu == %3zu (%s)\n", A, B, r, (r == (A < B)) ? "PASSED" : "ERR");
+
+	// Testing comparison unit
+	printf("\n\nTesting arithmetic unit\n");
+
+	// Signed addition
+	printf("\nSigned addition\n");
+	regmap[2] = 4;
+	r  = regmap[0];
+	printf("%2zd + %2zd == %3zd (%s)\n", A, B, r, ((signed int)r == ((signed int)A + (signed int)B)) ? "PASSED" : "ERR");
+
+	// Unsigned addition
+	printf("\nUnsigned addition\n");
+	regmap[2] = 5;
+	r  = regmap[0];
+	printf("%2zu + %2zu == %3zu (%s)\n", A, B, r, (r == (A + B)) ? "PASSED" : "ERR");
+
+	// Signed addition
+	printf("\nSigned subtraction\n");
+	regmap[2] = 6;
+	r  = regmap[0];
+	printf("%2zd - %2zd == %3zd (%s)\n", A, B, r, ((signed int)r == ((signed int)A - (signed int)B)) ? "PASSED" : "ERR");
+
+	// Unsigned addition
+	printf("\nUnsigned subtraction\n");
+	regmap[2] = 7;
+	r  = regmap[0];
+	printf("%2zu - %2zu == %3zu (%s)\n", A, B, r, (r == (A - B)) ? "PASSED" : "ERR");
+
+	return 0;
+}
+

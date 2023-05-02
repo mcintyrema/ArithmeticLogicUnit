@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main(void){
+	uint32_t *regmap = (uint32_t *) 0x70000000;
+
+	for(size_t i = -100; i < 100; i++){
+//		regmap[0] = i; //A is regmap[0]
+//		remap[1] = i;  //B is regmap[1]
+//		regmap[2] = "0000"; //ALUOp is regmap[2]
+//		regmap[3] = "00000"; //SHAMT is regmap[3]
+		regmap[0] = i;
+		for(size_t j = -100; j < 100; j++){
+			regmap[1] = j;
+
+			//ADD
+			regmap[2] = 4;
+			size_t r = i + j;
+			if(regmap[0] != r){
+				printf("ERR");
+
+			//UADD
+				regmap[2] = 5;
+				size_t r = i + j;
+				if(regmap[0] != r){
+				printf("ERR");
+			}
+		}
+	}
+}

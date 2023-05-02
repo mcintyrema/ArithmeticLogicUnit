@@ -1,0 +1,142 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Mon Feb  6 11:23:25 2023
+| Host         : kenzies_laptop running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_ALU_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of design_1_ALU_0_0 (xilinx.com:user:ALU:1.0 (Rev. 4)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Sun Feb  5 14:03:11 2023
+| Host         : kenzies_laptop running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_ALU_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of design_1_ALU_0_0 (xilinx.com:user:ALU:1.0 (Rev. 4)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Sun Feb  5 14:02:53 2023
+| Host         : kenzies_laptop running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_ALU_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_ALU_0_0 (xilinx.com:user:ALU:1.0) from (Rev. 3) to (Rev. 4)
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Sun Feb  5 13:57:33 2023
+| Host         : kenzies_laptop running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_ALU_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of design_1_ALU_0_0 (xilinx.com:user:ALU:1.0 (Rev. 3)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Sun Feb  5 13:57:16 2023
+| Host         : kenzies_laptop running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_ALU_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of design_1_ALU_0_0 (xilinx.com:user:ALU:1.0 (Rev. 3)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Sun Feb  5 13:46:28 2023
+| Host         : kenzies_laptop running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_ALU_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of design_1_ALU_0_0 (xilinx.com:user:ALU:1.0 (Rev. 3)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Sun Feb  5 13:45:46 2023
+| Host         : kenzies_laptop running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'design_1_ALU_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of design_1_ALU_0_0 (xilinx.com:user:ALU:1.0) from (Rev. 2) to (Rev. 3)
+

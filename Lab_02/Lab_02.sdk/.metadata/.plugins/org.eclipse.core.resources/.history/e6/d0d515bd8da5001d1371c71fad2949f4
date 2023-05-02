@@ -1,0 +1,96 @@
+#include <stdio.h>
+
+int main(void){
+	uint32_t *regmap = (uint32_t *) 0x70000000;
+
+	for(size_t i = -100; i < 100; i++){
+//		regmap[0] = i; //A is regmap[0]
+//		remap[1] = i;  //B is regmap[1]
+//		regmap[2] = "0000"; //ALUOp is regmap[2]
+//		regmap[3] = "00000"; //SHAMT is regmap[3]
+		regmap[0] = i;
+		for(size_t j = -100; j < 100; j++){
+			regmap[1] = j;
+
+			//ADD
+			regmap[2] = 4;
+			size_t r = i + j;
+			if(regmap[0] != r){
+				printf("ERR");
+			}
+
+			//UADD
+			regmap[2] = 5;
+			 r = i + j;
+			if(regmap[0] != r){
+				printf("ERR");
+			}
+
+			//SUB
+			regmap[2] = 6;
+			 r = i - j;
+			if(regmap[0] != r){
+				printf("ERR");
+			}
+
+			//USUB
+			regmap[2] = 7;
+			 r = i - j;
+			if(regmap[0] != r){
+				printf("ERR");
+			}
+
+			//logical and
+			regmap[2] = 0;
+			size_t r = i && j;
+			if(regmap[0] != r){
+				printf("ERR");
+			}
+
+			//logical or
+			regmap[2] = 1;
+			 r = i || j;
+			if(regmap[0] != r){
+				printf("ERR");
+			}
+
+			//logical XOR
+			regmap[2] = 2;
+			 r = i^j;
+			if(regmap[0] != r){
+				printf("ERR");
+			}
+
+			//logical NOR
+			regmap[2] = 3;
+			 r = !(i || j);
+			if(regmap[0] != r){
+				printf("ERR");
+			}
+
+			//Comparator STL
+			regmap[2] = 10;
+			if(i < j){
+				r = 1;
+			}
+			else{
+				r = 0;
+			}
+			if(regmap[0] != r){
+				printf("ERR");
+			}
+
+			//Comparator STLU
+			regmap[2] = 10;
+			if(i < j){
+				r = 1;
+			}
+			else{
+				r = 0;
+			}
+			if(regmap[0] != r){
+				printf("ERR");
+			}
+		}
+	}
+}
